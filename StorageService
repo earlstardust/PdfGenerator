@@ -1,0 +1,11 @@
+public class StorageService
+{
+    // variables
+    
+    // methods
+    
+    public Task<> Save(Document document)
+    {
+        ...
+    }
+}
