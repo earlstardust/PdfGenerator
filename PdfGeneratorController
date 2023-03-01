@@ -1,0 +1,36 @@
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.AspNetCore.Mvc;
+
+[ApiController]
+[Route("[controller]")]
+public class PdfGeneratorController : ControllerBase
+{
+    [HttpPost]
+    public IActionResult GeneratePdf(PdfRequest request)
+    {
+        // Create a new PDF document
+        var document = new Document();
+        var stream = new MemoryStream();
+        var writer = PdfWriter.GetInstance(document, stream);
+        document.Open();
+
+        // Add content to the document
+        var paragraph = new Paragraph(request.Content);
+        document.Add(paragraph);
+
+        // Save the document to a byte array
+        writer.CloseStream = false;
+        document.Close();
+        var pdfBytes = stream.ToArray();
+
+        // Return the PDF as a file download
+        return File(pdfBytes, "application/pdf", request.Name);
+    }
+}
+
+public class PdfRequest
+{
+    public string Name { get; set; }
+    public string Content { get; set; }
+}
