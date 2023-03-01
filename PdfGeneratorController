@@ -24,7 +24,7 @@ public class PdfGeneratorController : ControllerBase
         var pdfBytes = stream.ToArray();
         
         // Send to storage
-        bool result = await SendToStorage(document);
+        bool result = await Save(document);
 
         // Return the PDF as a file download
         return File(pdfBytes, "application/pdf", request.Name);
