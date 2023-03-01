@@ -3,7 +3,6 @@ using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("[controller]")]
 public class PdfGeneratorController : ControllerBase
 {
     [HttpPost]
@@ -23,6 +22,9 @@ public class PdfGeneratorController : ControllerBase
         writer.CloseStream = false;
         document.Close();
         var pdfBytes = stream.ToArray();
+        
+        // Send to storage
+        bool result = await SendToStorage(document);
 
         // Return the PDF as a file download
         return File(pdfBytes, "application/pdf", request.Name);
