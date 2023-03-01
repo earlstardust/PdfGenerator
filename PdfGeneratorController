@@ -28,9 +28,3 @@ public class PdfGeneratorController : ControllerBase
         return File(pdfBytes, "application/pdf", request.Name);
     }
 }
-
-public class PdfRequest
-{
-    public string Name { get; set; }
-    public string Content { get; set; }
-}
