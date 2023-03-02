@@ -7,7 +7,7 @@ Denna lösning är inte körbar även om det finns lite kod som jag tänker kan 
 En API-lösning med köer i molnet känns väl som en bra lösning som också kan hantera större mängder trafik.
 
 I Document Service ska vi ju ha följande enligt spec
-string customerNumber, kanske även kalla ssn även om jag hellre hade haft ett PersonId som Guid eftersom pesonnummer faktiskt kan bytas och intenödvändigtvis är unikt.
+string customerNumber, kanske även kalla ssn även om jag hellre hade haft ett PersonId som Guid eftersom pesonnummer faktiskt kan bytas och inte nödvändigtvis är unikt.
 Guid DocumentNumber
 string documentText, som så klart skulle kunna vara ett mer fancy objekt i form av Document eller så
 
