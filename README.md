@@ -15,6 +15,7 @@ Ett annat sätt att få fram ett dokument skulle ju kunna vara annars att ha fä
 
 Här har vi antagit att det finns en lösning för storage som vi implementerar.
 Men när det gäller storage vore det smart att inte lagra alla möjligtvis miljontals Pdf-filer utan bara innehåll samt en referens till vilken mall och vilken version som använts. På så sätt kan vi generera en pdf on the fly när den behövs. Om du har x antal filer med text "Välkommen till SEB Gustav Rylander! Ditt kundnummer är 42." så skulle x antal pdf-filer kunna bli en stor mängd data medan om du bara lagrar vilken xpd-mall du använt samt innehållet som xml blir det en mindre mängd data att lagra, vilket så klart är bra. Du slipper lagra samma data flera gånger. 
+Om man då vill kunna skicka en pdf med epost kan man hämta data store storage och generera en pdf och skicka den med befintlig tjänst för epostutskick.
 
 Flödet skulle gå som följer
 Document Service håller koll på beställningar som jag tolkat det. Där lagrar vi beställningar med vilken kund, vilket dokument och vilket innehåll.
@@ -29,3 +30,4 @@ När det gäller felhantering och kasta exception finns det också vinster att g
 ### Personlig kommentar.
 Då det är ytterst ovanligt för mig att börja från noll så här så mycket av det ni ser kanske verkar lite udda. Jag är medveten om det. Om det finns någon att diskutera med och befintlig kod att utgå ifrån anser jag att det finns mycket större möjligheter till att göra något som kommer vara bra och hålla i längden.
 Docker har jag använt ytterst lite som också meddelat under intervju 1 och då bara kört containers som en del av större lösning. Därav ingen container här.
+Självklart ska också koden vara uppdelar snyggt i olika lager så det är tydligt att man håller deisgn pattern.
