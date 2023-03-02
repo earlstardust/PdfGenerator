@@ -24,8 +24,7 @@ Om man har den här lösningen i molnet går det att skala och meddelandehanteri
 
 Loggning och felhantering ska så klart också finnas. Loggning antar jag redan finns så allt ska självklart loggas enligt gällande standard.
 Självklart ska vi ha validering också och skicka BadRequest om inte anropet är ok.
-När det gäller felhantering och kasta exception finns det också vinster att göra i att returnera Task<Result<bool>> istället för Task<bool> och hantera exception i result istället för att kasta. Men det finns säkert mer att justera.
-
+När det gäller felhantering och kasta exception finns det också vinster att göra i att returnera Task<Result<bool>> istället för Task<bool> vad jag förstått och hantera exception i Result istället för att kasta. Men det finns säkert mer att justera.
 
 ### Personlig kommentar.
 Då det är ytterst ovanligt för mig att börja från noll så här så mycket av det ni ser kanske verkar lite udda. Jag är medveten om det. Om det finns någon att diskutera med och befintlig kod att utgå ifrån anser jag att det finns mycket större möjligheter till att göra något som kommer vara bra och hålla i längden.
