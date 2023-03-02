@@ -1,4 +1,4 @@
-public class StorageService
+public class StorageService : Interface // Interface for storage service at hand. Can be change if desired
 {
     // variables
     
