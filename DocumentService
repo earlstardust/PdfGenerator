@@ -6,6 +6,6 @@ public class DocumentService
     int DocumentVersion;
     string DocumentContent;
     
-    var result await PdfRequest(documentService)
+    var result await GeneratePdf(documentService)
     // do something
 }
