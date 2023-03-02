@@ -1,5 +1,5 @@
 public class PdfRequest
 {
     public Guid Id { get; set; }
-    public PdfContent PdfContent { get; set; }
+    public documentService DocumentService { get; set; }
 }
