@@ -4,7 +4,7 @@ public class StorageService
     
     // methods
     
-    public Task<> Save(Document document)
+    public Task<T> Save(Document document)
     {
         ...
     }
