@@ -1,0 +1,11 @@
+public class DocumentService
+{
+    //variables
+    Guid PersonId;
+    long DocumentNumber;
+    int DocumentVersion;
+    string DocumentContent;
+    
+    var result await PdfRequest(documentService)
+    // do something
+}
