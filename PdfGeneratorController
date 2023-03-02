@@ -1,5 +1,4 @@
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+using iTextSharp or other pdf generating service
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -9,24 +8,29 @@ public class PdfGeneratorController : ControllerBase
     public IActionResult GeneratePdf(PdfRequest request)
     {
         // Create a new PDF document
-        var document = new Document();
-        var stream = new MemoryStream();
-        var writer = PdfWriter.GetInstance(document, stream);
-        document.Open();
-
-        // Add content to the document
-        var paragraph = new Paragraph(request.Content);
-        document.Add(paragraph);
-
-        // Save the document to a byte array
-        writer.CloseStream = false;
-        document.Close();
-        var pdfBytes = stream.ToArray();
-        
+        var document = GetDocument(request)
         // Send to storage
         bool result = await Save(document);
 
         // Return the PDF as a file download
         return File(pdfBytes, "application/pdf", request.Name);
+    }
+    
+    private Document GetDocument(PdfRequest request)
+    {
+        var document = new Document();
+        var stream = new MemoryStream();
+        var writer = PdfWriter.GetInstance(document, stream);
+        document.Open();
+
+        // Add content
+        var paragraph = new Paragraph(request.Content);
+        document.Add(paragraph);
+
+        // Save the document
+        writer.CloseStream = false;
+        document.Close();
+        var pdfBytes = stream.ToArray();
+        return document;
     }
 }
